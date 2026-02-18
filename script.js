@@ -1,37 +1,48 @@
 document.addEventListener("DOMContentLoaded", () => {
 
-  /* ===== TYPING ANIMATION ===== */
-  const texts = [
-    "Aspiring Computer Science Student",
-    "Web Developer",
-    "Problem Solver",
-    "Passionate Learner",
-    "Tech Enthusiast"
-  ];
+ const texts = [
+  "Aspiring Computer Science Student",
+  "Web Developer",
+  "Problem Solver",
+  "Passionate Learner",
+  "Tech Enthusiast"
+];
 
-  let count = 0;
-  let index = 0;
+let textIndex = 0;
+let charIndex = 0;
+let isDeleting = false;
 
-  function type() {
-    const currentText = texts[count];
-    const letter = currentText.slice(0, ++index);
+const typingElement = document.getElementById("typing-text");
 
-    const typingEl = document.getElementById("typing-text");
-    if (!typingEl) return; // safety check
+function typeEffect() {
+  const currentText = texts[textIndex];
 
-    typingEl.textContent = letter;
+  if (!isDeleting) {
+    // Typing
+    typingElement.textContent = currentText.substring(0, charIndex + 1);
+    charIndex++;
 
-    if (letter.length === currentText.length) {
+    if (charIndex === currentText.length) {
       setTimeout(() => {
-        index = 0;
-        count = (count + 1) % texts.length;
-      }, 1500);
+        isDeleting = true;
+      }, 1200);
     }
 
-    setTimeout(type, 100);
+  } else {
+    // Deleting
+    typingElement.textContent = currentText.substring(0, charIndex - 1);
+    charIndex--;
+
+    if (charIndex === 0) {
+      isDeleting = false;
+      textIndex = (textIndex + 1) % texts.length;
+    }
   }
 
-  type();
+  setTimeout(typeEffect, isDeleting ? 60 : 100);
+}
+
+typeEffect();
 });
 /* ===== CURSOR GLOW MOVE ===== */
 const glow = document.getElementById("cursor-glow");
