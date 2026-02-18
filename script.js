@@ -7,7 +7,6 @@ document.addEventListener("DOMContentLoaded", () => {
     "Problem Solver",
     "Passionate Learner",
     "Tech Enthusiast"
-  
   ];
 
   let count = 0;
