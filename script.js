@@ -4,8 +4,10 @@ document.addEventListener("DOMContentLoaded", () => {
   const texts = [
     "Aspiring Computer Science Student",
     "Web Developer",
-    "Problem Solver & Team Leader",
-    "Passionate Learner"
+    "Problem Solver",
+    "Passionate Learner",
+    "Tech Enthusiast"
+  
   ];
 
   let count = 0;
