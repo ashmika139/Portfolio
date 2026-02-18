@@ -355,3 +355,26 @@ h2 {
         font-size: 36px;
     }
 }
+/* ===== MOBILE NAV FIX ===== */
+@media (max-width: 768px) {
+
+  nav {
+    flex-direction: column;
+    padding: 10px 20px;
+  }
+
+  nav ul {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 10px;
+  }
+
+  nav ul li {
+    margin: 0;
+  }
+
+  nav ul li a {
+    font-size: 14px;
+  }
+}
